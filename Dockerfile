@@ -8,7 +8,7 @@ RUN apk add --no-cache git openssh-client
 # Install Composer
 COPY --from=composer /usr/bin/composer /usr/bin/composer
 
-# Copy the composer.json and composer.lock file
+# Copy the composer.json and composer.lock files
 COPY composer.* .
 
 # Install the dependencies and allow Docker to use the SSH credentials of the host
