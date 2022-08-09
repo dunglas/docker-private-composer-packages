@@ -1,3 +1,4 @@
+# syntax=docker/dockerfile:1
 FROM php:alpine
 
 WORKDIR /srv/app
