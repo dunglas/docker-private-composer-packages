@@ -1,0 +1,11 @@
+version: '3.4'
+
+services:
+  php:
+    build: .
+    secrets:
+      - composer_auth
+
+secrets:
+  composer_auth:
+    file: ./auth.json

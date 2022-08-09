@@ -1,0 +1,11 @@
+{
+  "require": {
+    "dunglas/my-private-repo": "dev-main"
+  },
+  "repositories": [
+    {
+      "type": "vcs",
+      "url":  "https://github.com/dunglas/my-private-repo.git"
+    }
+  ]
+}
