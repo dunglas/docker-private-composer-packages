@@ -11,8 +11,11 @@ COPY --from=composer /usr/bin/composer /usr/bin/composer
 # Copy the composer.json and composer.lock files
 COPY composer.* .
 
-# Install the dependencies by allowing Docker to use the auth.json file of the host
-RUN --mount=type=secret,id=composer_auth,dst=/srv/app/auth.json composer install --prefer-dist --no-scripts --no-autoloader --no-progress --no-interaction
+# Install the prod dependencies by allowing Docker to use the auth.json file of the host
+RUN --mount=type=secret,id=composer_auth,dst=/srv/app/auth.json composer install --no-dev --prefer-dist --no-scripts --no-autoloader --no-progress --no-interaction
 
 # auth.json must not be copied into the final image
 COPY . .
+
+# Dump the autoloader
+RUN composer dump-autoload --classmap-authoritative --no-dev
