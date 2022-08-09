@@ -2,7 +2,7 @@ FROM php:alpine
 
 WORKDIR /srv/app
 
-# Install mandatory dependencies to clone the repo
+# These packages haven't to be installed if you have a composer.lock file, which is a best practice
 RUN apk add --no-cache git openssh-client
 
 # Install Composer
